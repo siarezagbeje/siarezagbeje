@@ -1,0 +1,22 @@
+
+name: siarezagbeje
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
+    steps:
+    - uses: actions/checkout@v3
+    - run: echo 'Node version check:' && node -v
+    - run: echo 'Disk space usage:' && df -h
+    - run: echo 'Starting main script...'
+    - run: echo 'Starting workflow setup...'
+    - run: uname -a  # Kiểm tra hệ thống
+    - run: timeout 60m node app.js
+    # Initializing dependencies
+    # Data verification enabled
+    # Running in debug mode
+    # Automated by script v1.0
